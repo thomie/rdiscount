@@ -19,3 +19,5 @@
 
 #define RELAXED_EMPHASIS 1
 #define SUPERSCRIPT 1
+
+#define DIV_QUOTE 1
