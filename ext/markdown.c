@@ -615,7 +615,7 @@ isdivmarker(Line *p, int start)
     len -= start+1;
 
     while ( ++i < len )
-	if ( !isalnum(s[i]) )
+	if ( !(isalnum(s[i]) || isspace(s[i])) )
 	    return 0;
 
     return 1;
