@@ -468,6 +468,7 @@ static linkytype linkt  = { 0, 0, "<a href=\"", "\"",
  */
 static linkytype specials[] = {
     { "id:", 3, "<a id=\"", "\"", 0, ">", "</a>", 0, IS_URL },
+    { "sid:", 4, "<span id=\"", "\"", 0, ">", "</span>", 0, 0 },
     { "raw:", 4, 0, 0, 0, 0, 0, DENY_HTML, 0 },
     { "lang:", 5, "<span lang=\"", "\"", 0, ">", "</span>", 0, 0 },
     { "abbr:", 5, "<abbr title=\"", "\"", 0, ">", "</abbr>", 0, 0 },
