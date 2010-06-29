@@ -76,6 +76,17 @@ isthisspace(MMIOT *f, int i)
     return isspace(c) || (c == EOF);
 }
 
+static int
+isthisdotorsemicolonorcomma(MMIOT *f, int i)
+{
+    int c = peek(f, i);
+    int c2 = peek(f, i+1);
+    int dot = (int) '.';
+    int semicolon = (int) ';';
+    int comma = (int) ',';
+
+    return c == dot || c == semicolon || ( c == comma && isspace(c2) );
+}
 
 static int
 isthisalnum(MMIOT *f, int i)
@@ -1117,7 +1128,8 @@ text(MMIOT *f)
 			char *sup = cursor(f);
 			int len = 0;
 			Qstring("<sup>",f);
-			while ( !isthisspace(f,1+len) ) {
+			while (!(isthisspace(f,1+len) ||
+			         isthisdotorsemicolonorcomma(f,1+len))) {
 			    ++len;
 			}
 			shift(f,len);
